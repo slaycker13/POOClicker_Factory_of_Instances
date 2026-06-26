@@ -157,31 +157,19 @@ view.Launcher
 
 ## Tela principal
 
-> Inserir imagem
-
-```md
-![Tela Principal](docs/tela-principal.png)
-```
+<img width="1576" height="892" alt="TelaPrincipal" src="https://github.com/user-attachments/assets/1de64226-dc36-42aa-b768-a427c37f3b9d" />
 
 ---
 
 ## Painel Debug
 
-> Inserir imagem
-
-```md
-![Painel Debug](docs/debug.png)
-```
+<img width="725" height="780" alt="TelaDebugg" src="https://github.com/user-attachments/assets/181f2b4b-482c-496d-81a6-065c84cde1c6" />
 
 ---
 
 ## Evento de vitória
 
-> Inserir imagem
-
-```md
-![Vitória](docs/vitoria.png)
-```
+<img width="1592" height="937" alt="TelaVitoria" src="https://github.com/user-attachments/assets/ef5d04c9-fff7-445d-8796-1d99ef4bea95" />
 
 ---
 
