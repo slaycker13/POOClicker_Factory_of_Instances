@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #22242a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainControllerFXML">
+   <top>
+      <HBox prefHeight="40.0"
+            prefWidth="1280.0"
+            alignment="CENTER_LEFT"
+            spacing="16.0"
+            style="-fx-background-color: #22242a; -fx-padding: 6 14 6 14; -fx-border-color: #17181e; -fx-border-width: 0 0 8 0;"
+            BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton fx:id="menuSalvar"
+                        mnemonicParsing="false"
+                        text=""
+                        contentDisplay="GRAPHIC_ONLY"
+                        prefHeight="28.0"
+                        prefWidth="95.0"
+                        style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0 8 0 8;">
+               <graphic>
+                  <Label text="Salvar"
+                         style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;" />
+               </graphic>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Slot 1" fx:id="salvarSlot1"/>
+                  <MenuItem mnemonicParsing="false" text="Slot 2" fx:id="salvarSlot2"/>
+                  <MenuItem mnemonicParsing="false" text="Slot 3" fx:id="salvarSlot3"/>
+               </items>
+            </MenuButton>
+
+            <MenuButton fx:id="menuCarregar"
+                        mnemonicParsing="false"
+                        text=""
+                        contentDisplay="GRAPHIC_ONLY"
+                        prefHeight="28.0"
+                        prefWidth="115.0"
+                        style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0 8 0 8;">
+               <graphic>
+                  <Label text="Carregar"
+                         style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;" />
+               </graphic>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Slot 1" fx:id="carregarSlot1"/>
+                  <MenuItem mnemonicParsing="false" text="Slot 2" fx:id="carregarSlot2"/>
+                  <MenuItem mnemonicParsing="false" text="Slot 3" fx:id="carregarSlot3"/>
+               </items>
+            </MenuButton>
+
+            <Button fx:id="btnDebug"
+                    mnemonicParsing="false"
+                    prefHeight="28.0"
+                    prefWidth="100.0"
+                    text="Debugger"
+                    onAction="#abrirDebug"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold; -fx-border-width: 0;" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane fx:id="areaJogo" BorderPane.alignment="CENTER">
+         <HBox AnchorPane.topAnchor="0.0"
+               AnchorPane.bottomAnchor="0.0"
+               AnchorPane.leftAnchor="0.0"
+               AnchorPane.rightAnchor="0.0">
+            <children>
+               <VBox fx:id="painelEsquerdo"
+                     alignment="TOP_CENTER"
+                     prefWidth="330.0"
+                     spacing="20.0"
+                     style="-fx-background-color: #22242a; -fx-padding: 0 0 18 0; -fx-border-color: #17181e; -fx-border-width: 0 4 8 8;">
+                  <children>
+                     <Label fx:id="lblTituloInstancias"
+                            alignment="CENTER"
+                            prefWidth="330.0"
+                            prefHeight="36.0"
+                            text="INSTÂNCIAS"
+                            style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+                     <StackPane prefWidth="330.0"
+                                prefHeight="92.0"
+                                style="-fx-background-color: #2c2e35;">
+                        <children>
+                           <VBox alignment="CENTER" spacing="2.0">
+                              <children>
+                                 <Label fx:id="lblInstancias"
+                                        alignment="CENTER"
+                                        text="0 Instâncias"
+                                        style="-fx-text-fill: white; -fx-font-size: 30px; -fx-font-weight: bold;" />
+
+                                 <Label fx:id="lblProducao"
+                                        alignment="CENTER"
+                                        text="Produção/s: 0"
+                                        style="-fx-text-fill: #d5d7de; -fx-font-size: 14px;" />
+                              </children>
+                           </VBox>
+                        </children>
+                     </StackPane>
+                     <Label fx:id="lblStatus"
+                            alignment="CENTER"
+                            prefWidth="330.0"
+                            prefHeight="30.0"
+                            text="Status"
+                            style="-fx-text-fill: #8fb7ff; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                     <AnchorPane fx:id="areaClique"
+                                 prefHeight="175.0"
+                                 prefWidth="320.0">
+                        <children>
+                           <StackPane fx:id="cardClique"
+                                      alignment="CENTER"
+                                      layoutX="5.0"
+                                      layoutY="8.0"
+                                      prefWidth="310.0"
+                                      prefHeight="135.0"
+                                      onMouseClicked="#clicar"
+                                      style="-fx-background-color: #2c2e35; -fx-border-color: #4a4d58; -fx-border-width: 2; -fx-background-radius: 22; -fx-border-radius: 22; -fx-padding: 14; -fx-cursor: hand;">
+                              <children>
+                                 <TextFlow fx:id="flowCodigo"
+                                           mouseTransparent="true"
+                                           prefWidth="280.0"
+                                           maxWidth="280.0"
+                                           textAlignment="LEFT"
+                                           translateY="18.0" />
+                              </children>
+                           </StackPane>
+                        </children>
+                     </AnchorPane>
+                     <Label fx:id="lblCritico"
+                            alignment="CENTER"
+                            prefWidth="338.0"
+                            text="CRÍTICO!"
+                            visible="false" />
+                  </children>
+               </VBox>
+               <VBox fx:id="painelCentral" prefWidth="500.0" style="-fx-background-color: #22242a; -fx-padding: 10; -fx-border-color: #17181e; -fx-border-width: 0 4 8 4;">
+                  <children>
+                     <ScrollPane fx:id="scrollVisual" fitToHeight="false" fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <content>
+                           <VBox fx:id="painelVisual" spacing="10.0" >
+                              <children>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="AUTOCLICK()"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaAutoClick"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="ESTAGIÁRIO"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaEstagiario"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="CLASSE BÁSICA"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaClasseBasica"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="HERANÇA SIMPLES"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaHeranca"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="INTERFACE"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaInterface"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="CLASSE ABSTRATA"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaClasseAbstrata"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="POLIMORFISMO"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaPolimorfismo"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="0">
+                                    <children>
+                                       <Label text="FRAMEWORK PRÓPRIO"
+                                              alignment="CENTER"
+                                              prefWidth="500.0"
+                                              prefHeight="26.0"
+                                              style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                       <AnchorPane fx:id="areaFrameworkProprio"
+                                                   prefHeight="180.0"
+                                                   maxHeight="180.0"
+                                                   prefWidth="500.0"
+                                                   style="-fx-border-color: #42444d; -fx-border-width: 4;" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </VBox>
+                        </content>
+                     </ScrollPane>
+                  </children>
+               </VBox>
+               <VBox fx:id="painelDireito" prefWidth="450.0" spacing="0.0" style="-fx-background-color: #22242a; -fx-padding: 0; -fx-border-color: #17181e; -fx-border-width: 0 8 8 4;">
+                  <children>
+                     <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="475.0" text="UPGRADES" style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-border-color: #17181e; -fx-border-width: 0 0 4 0;" />
+                     <ScrollPane fx:id="scrollUpgrades" prefHeight="250.0" style="-fx-background-color: transparent; -fx-border-color: #17181e; -fx-border-width: 0 0 4 0; -fx-padding: 8 10 8 10;">
+                        <content>
+                           <VBox fx:id="painelUpgrades" spacing="10.0" />
+                        </content>
+                     </ScrollPane>
+                     <Label alignment="CENTER" prefWidth="475.0" text="CONSTRUÇÕES" style="-fx-background-color: #2c2e35; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-border-color: #17181e; -fx-border-width: 8 0 4 0;" />
+                     <ScrollPane fx:id="scrollConstrucoes" prefHeight="374.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <content>
+                           <VBox fx:id="painelConstrucoes" spacing="10.0" />
+                        </content>
+                     </ScrollPane>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+         <Button fx:id="btnErro"
+                 text="NullPointerException"
+                 visible="false"
+                 prefWidth="220.0"
+                 prefHeight="46.0"
+                 style="-fx-background-color: #8b1e2d; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-border-color: #ff5555; -fx-border-width: 2; -fx-background-radius: 4; -fx-border-radius: 4; -fx-effect: dropshadow(gaussian, black, 10, 0.45, 0, 3);" />
+      </AnchorPane>
+   </center>
+</BorderPane>
