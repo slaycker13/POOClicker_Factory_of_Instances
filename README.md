@@ -163,7 +163,7 @@ view.Launcher
 
 ## Painel Debug
 
-<img width="725" height="780" alt="TelaDebugg" src="https://github.com/user-attachments/assets/181f2b4b-482c-496d-81a6-065c84cde1c6" />
+<img width="543" height="585" alt="TelaDebugg" src="https://github.com/user-attachments/assets/181f2b4b-482c-496d-81a6-065c84cde1c6" />
 
 ---
 
